@@ -2,23 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Provinces</title>
 </head>
 <body>
 <a th:href="@{/}">Back to homepage</a>
-<h1>Province list</h1>
-<table>
+<a href="/create-province">Create new province</a>
+<h1>Provinces</h1>
+<table border="1">
     <tr>
-        <td>Province</td>
-        <td>Customer list</td>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
-    <th:block th:each="province: ${provinces}">
+    <th:block th:each="province : ${provinces}">
         <tr>
-            <td th:text="${province.getName()}"></td>
-            <td><a th:href="@{/view-provinces/__${province.getId()}__}">View</a></td>
+            <td th:text="${province.name}"></td>
+            <td><a th:href="@{/edit-province/__${province.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-province/__${province.id}__ }">Delete</a></td>
         </tr>
     </th:block>
-
 </table>
 </body>
 </html>
